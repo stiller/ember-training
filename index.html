@@ -15,7 +15,7 @@
     <script src="tests/load-tests.js"></script>
   </head>
   <body>
-    <script type="text/x-handlebars">
+    <script type="text/x-handlebars" >
       <header><h1>BümBöx</h1></header>
       {{outlet}}
     </script>
@@ -23,42 +23,17 @@
     <script type="text/x-handlebars" id="index">
       <div class="album-list">
         {{#each}}
-          <div class="album">
-            {{#linkTo 'album' this}}
-              <img {{bindAttr src=artwork}}>
-            {{/linkTo}}
-            <p class="album-name">{{name}}</p>
-            <p class="album-artist">{{artist}}</p>
-            <p class="song-count">
-              8 songs
-              {{#if isExplicit}}<span class="explicit">EXPLICIT</span>{{/if}}
-            </p>
-          </div>
+        <div class="album">
+          <img src="http://cdn3.rd.io/album/d/b/c/0000000000220cbd/1/square-200.jpg">
+          <p class="album-name">{{name}}</p>
+          <p class="album-artist">{{artist}}</p>
+          <p class="song-count">
+            8 songs
+            <span class="explicit">EXPLICIT</span>
+          </p>
+        </div>
         {{/each}}
       </div>
-    </script>
-
-    <script type="text/x-handlebars" id="album">
-      <div class="album-info">
-        <img {{bindAttr src=artwork}}>
-        <h1>{{name}}</h1>
-        <h2>{{artist}}</h2>
-      </div>
-
-      <table class="album-listing">
-        {{#each songs}}
-          <tr>
-            <td class="song-track">
-              <span class="track-number">{{track}}</span>
-            </td>
-            <td class="song-name">{{name}}</td>
-            <td class="song-duration">{{format-duration duration}}</td>
-          </tr>
-        {{/each}}
-        <tr>
-          <td class="total-duration" colspan="3">Total Time: 40:03</td>
-        </tr>
-      </table>
     </script>
 
     <div id="qunit" style="display: none"></div>
